@@ -2,31 +2,32 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
-import { MatIcon } from '@angular/material/icon';
 import { SidebarComponent } from "../sidebar/sidebar.component";
 import { MatButtonModule } from '@angular/material/button';
 import { ApiService } from '../api/apiService';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [RouterModule, CommonModule, MatTableModule, SidebarComponent, MatButtonModule, MatIcon],
+  imports: [RouterModule, CommonModule, MatTableModule, SidebarComponent, MatButtonModule, FormsModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
   })
 
-  export class DashboardComponent implements AfterViewInit {
+  export class DashboardComponent implements OnInit {
     employees: any[] = [];
     filteredEmployees: any[] = [];
+    searched: Boolean = false;
     
-    searchedEmployee: string = "";
+    searchString: string = "";
   
     constructor(private apiService : ApiService, private router: Router) {}
   
-    ngAfterViewInit(): void {
+    ngOnInit(): void {
       console.log("ngAfterViewInit has been triggered");
       this.fetchEmployees();
     }
@@ -48,30 +49,29 @@ import { Router } from '@angular/router';
         }
       });
     }
-    
-    updateSearchedEmp(event: Event): void {
-      this.searchedEmployee = (event.target as HTMLInputElement).value;
-    }
-  
-    emptySearchKey(): void {
-      this.searchedEmployee = "";
-      this.filteredEmployees = [...this.employees]; // Reset filter when search is cleared
-    }
   
     search(): void {
-      if (!this.searchedEmployee.trim()) { 
-        this.filteredEmployees = [...this.employees]; 
-        return;
-      }
-  
-      this.filteredEmployees = this.employees.filter(emp =>
-        emp.title.toLowerCase().includes(this.searchedEmployee.toLowerCase())
-      );
+      this.searched = true
+      this.apiService.getEmpByDept(this.searchString).subscribe((res: any)=>{
+      this.employees = res.data.getEmpByDept
+     })
     }
+
+
+    clearSearch(): void {
+      this.searchString = ""
+      this.searched = false
+      this.fetchEmployees()
+    }
+
 
     logout(): void{
       localStorage.clear()
       alert("Logging out")
       this.router.navigate(['/login'])
     }
+
+
+
+
   }
