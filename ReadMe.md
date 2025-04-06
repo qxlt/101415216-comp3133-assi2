@@ -25,6 +25,7 @@ By clicking the employee listed in the dashboard, users can view details of the 
 <img width="1470" alt="Screenshot 2025-04-06 at 3 14 08 PM" src="https://github.com/user-attachments/assets/132c9680-58ed-4039-9273-5d47e82257e7" />
 
 For the purpose of protecting data from mistouch, users have to turn on editing mode to be able to modify employee detail 
+
 Delete employee is also implemented by one click
 <img width="1470" alt="Screenshot 2025-04-06 at 3 14 22 PM" src="https://github.com/user-attachments/assets/6b865d1f-005b-4d18-9701-c160dfdd0d22" />
 
