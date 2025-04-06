@@ -2,6 +2,8 @@
 
 ## Web Deployment: https://101415216-comp3133-assi2-frontend.vercel.app
 
+For testing purpose, username: admin05 password:12345678
+
 ## Log-in
 <img width="1470" alt="Screenshot 2025-04-06 at 3 11 57 PM" src="https://github.com/user-attachments/assets/c0b2705c-57c5-437a-8ba0-cfe31775a0cb" />
 
