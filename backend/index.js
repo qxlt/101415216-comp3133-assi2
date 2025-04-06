@@ -31,6 +31,8 @@ app.use('/graphql', cors(), graphqlHTTP({
   graphiql: true,
 }));
 
+app.get("/", (res, req) => res.send('OK'))
+
 // start running
 app.listen(PORT, () => {
   connectDB()
