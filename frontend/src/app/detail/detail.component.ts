@@ -64,6 +64,18 @@ export class DetailComponent implements OnInit {
     return "Above $90,000/yr";
   }
 
+  getSalaryNumeric(salaryLabel: string): any {
+    if (salaryLabel == "Under $40,000/yr") return 39999;
+    if (salaryLabel == "$40,000-$49,999") return 40000;
+    if (salaryLabel == "$50,000-$59,999") return 50000;
+    if (salaryLabel == "$60,000-$69,999") return 60000;
+    if (salaryLabel == "$70,000-$79,999") return 70000;
+    if (salaryLabel == "$80,000-$89,999") return 80000;
+    return 90000
+
+
+  }
+
   ngOnInit(): void {
     this.formData = new FormGroup({
       firstName: new FormControl({ value: '', disabled: true }, [Validators.required]),
@@ -119,7 +131,7 @@ export class DetailComponent implements OnInit {
       this.formData.value.email, 
       this.formData.value.designation,
       this.formData.value.gender,
-      Number(this.formData.value.salaryLevel),
+      this.getSalaryNumeric(this.formData.value.salaryLevel),
       formattedDate,
       this.formData.value.department,
       this.formData.value.other,
@@ -127,13 +139,13 @@ export class DetailComponent implements OnInit {
     ).subscribe((res: any) => {
       alert("Employee Information Updated")
       this.editing = false
-    
       if (res?.data?.updateEmpById) {
         console.log('✅ Employee updated successfully');
       } else {
         console.warn('❌ Update failed:', res);
       }
     }, (err: Error) => {
+      console.log(this.formData.value.salaryLevel)
       console.error('❌ GraphQL error:', err);
     });
     

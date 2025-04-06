@@ -72,14 +72,21 @@ export class CreateEmpComponent implements OnInit {
         this.formData.value.department,
         this.formData.value.other,
         String(this.profileLink)
-      ).subscribe((data: any)=>{
-        if(data.data.addNewEmp.id){
-          console.log("New Employee Has Been Added")
-          this.router.navigate(['/dashboard'])
+      ).subscribe({
+        next: (res: any) => { 
+          if (res.data.addNewEmp) {
+            console.log("New Employee Has Been Added");
+            this.router.navigate(['/dashboard']).catch(err => {
+              console.error("Navigation error:", err);
+            });
+          } else {
+            console.error("API Error:", res.data?.addNewEmp);
+          }
+        },
+        error: (err: Error) => {
+          console.error("API Request failed:", err);
         }
-      })
-    } else {
-      alert("Validate Your Form Before Submitting")
+      });
     }
   }
 
