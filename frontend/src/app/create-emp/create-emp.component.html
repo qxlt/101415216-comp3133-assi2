@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./create-emp.component.css" ref="stylesheet" />
+</head>
+<body class="flex flex-row bg-slate-100">
+    <app-sidebar class="w-1/5" />
+    <div class="w-4/5 flex flex-col justify-start items-center my-5 ">
+        <h1 class="text-4xl varela-round-regular">Enroll New Employee</h1>
+        <div class="flex justify-center items-center flex-col">
+            <img
+              id="profileImage"
+              class="bg-white m-2 p-1 rounded-full object-cover w-40 h-40"
+              [src]="profileLink ? profileLink : 'https://www.w3schools.com/howto/img_avatar.png' "
+              alt="user profile"
+            />
+            <label class="varela-round-regular cursor-pointer mt-2 px-4 py-2 bg-green-300 text-blue-950 rounded hover:bg-green-200 transition">
+              Upload Image
+              <input
+                id="fileInput"
+                type="file"
+                accept="image/*"
+                class="hidden"
+                (change)="onSelectFile($event)"
+              />
+            </label>
+          </div>          
+          
+        <form [formGroup]="formData" (ngSubmit)="onSubmit()" class="w-3/4 border-2 p-4 my-10 rounded-lg flexn flex-shrink bg-white">
+            <mat-form-field [floatLabel]="floatLabel()" class="w-1/3 m-1 p-1">
+                <mat-label>First Name</mat-label>
+                <input matInput formControlName="firstName" required placeholder="eg. John Smith" />
+            </mat-form-field>
+            <mat-form-field [floatLabel]="floatLabel()" class="w-1/2 m-1 p-1 ">
+                <mat-label>Email Address</mat-label>
+                <input 
+                matInput 
+                required
+                type="email"
+                formControlName="email"      
+                placeholder="eg. 123@example.com" />
+            </mat-form-field>
+            <mat-form-field [floatLabel]="floatLabel()" class="w-1/3 m-1 p-1">
+                <mat-label>Last Name</mat-label>
+                <input
+                formControlName="lastName"
+                 required matInput placeholder="eg. Doe" />
+            </mat-form-field>
+            <mat-form-field class="w-1/2 m-1 p-1">
+                <mat-label>Department</mat-label>
+                <mat-select required formControlName="department">
+                    <mat-option value="Information and Technology">Information and Technology</mat-option>
+                    <mat-option value="Human Resource">Human Resource</mat-option>
+                    <mat-option value="Operation">Operation</mat-option>
+                    <mat-option value="Administration">Administration</mat-option>
+                    <mat-option value="Finance">Finance</mat-option>
+                    <mat-option value="Marketing">Marketing</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="w-1/3 m-1 p-1">
+                <mat-label>Gender</mat-label>
+                <mat-select required formControlName="gender">
+                    <mat-option value="Female">Female</mat-option>
+                    <mat-option value="Male">Male</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field [floatLabel]="floatLabel()" class="w-1/2 m-1 p-1">
+                <mat-label>Designation</mat-label>
+                <input formControlName="designation" required matInput placeholder="eg. Senior Software Developer" />
+            </mat-form-field>
+            <mat-form-field [floatLabel]="floatLabel()" class="w-1/3 m-1 p-1">
+                <mat-label>Salary Level</mat-label>
+                <mat-select required formControlName="salaryLevel">
+                    <mat-option value="39999">Under $40,000/yr</mat-option>
+                    <mat-option value="40000">$40,000-$49,999</mat-option>
+                    <mat-option value="50000">$50,000-$59,999</mat-option>
+                    <mat-option value="60000">$60,000-$69,999</mat-option>
+                    <mat-option value="70000">$70,000-$79,999</mat-option>
+                    <mat-option value="80000">$80,000-$89,999</mat-option>
+                    <mat-option value="90000">Above $90,000/yr</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Date of Join</mat-label>
+                <input formControlName="date_of_joining" matInput [matDatepicker]="picker" readonly>
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <br/>
+            <mat-form-field [floatLabel]="floatLabel()" class="w-1/3 m-1 p-1">
+                <mat-label>Other</mat-label>
+                <textarea formControlName="other" matInput rows="2" placeholder="Extra Comments eg. fish allergy"></textarea>
+            </mat-form-field>
+
+            <button class="cursor-pointer bg-green-300 text-blue-950 p-3 rounded-full text-2xl self-end varela-round-regular hover:bg-green-200">Submit</button>
+        </form>  
+
+    </div>
+</body>
+</html>

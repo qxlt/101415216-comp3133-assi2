@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link href="./app.component.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+</head>
+<body class="h-screen w-screen flex flex-col justify-center items-center">
+  <div class="flex flex-col justify-center items-center bg-green-200 p-5 rounded-xl w-1/5 h-1/2">
+    <h1 class="text-black text-3xl card-title varela-round-regular my-2 font-bold">Sign up</h1>
+    <form class="flex flex-col justify-center items-center" action="">
+      <div class="m-2">
+        <label class="varela-round-regular" for="username">Username</label>
+        <br/>
+        <input class="rounded-lg py-1 px-4 varela-round-regular" type="text" name="username" placeholder="Enter your username" />
+      </div>
+      <div class="m-2">      
+        <label class="varela-round-regular" for="email">Email</label>
+        <br/>
+        <input class="rounded-lg py-1 px-4 varela-round-regular" type="email" name="email" placeholder="Enter your email"/>
+      </div>
+      <div class="m-2">      
+        <label class="varela-round-regular" for="password">Password</label>
+        <br/>
+        <input class="rounded-lg py-1 px-4 varela-round-regular" type="password" name="password" placeholder="Enter your password"/>
+      </div>
+      <div class="m-2">
+        <label class="varela-round-regular" for="repassword">Confirm Password</label>
+        <br/>
+        <input class="rounded-lg py-1 px-4 varela-round-regular" type="password" name="repassword" placeholder="Confirm your password"/>
+      </div>
+    </form>
+
+    <span class="text-sm text-center my-2 varela-round-regular">Don't have an account? Click here to <a class="varela-round-regular text-blue-500 underline cursor-pointer" href="./app.component.signup.html">Sign In</a></span>
+  </div>
+  
+</body>
+</html>

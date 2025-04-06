@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./dashboard.component.css" rel="stylesheet">
+</head>
+<body class="flex flex-row w-screen overflow-auto">
+<app-sidebar class="w-1/5 sticky left-0 h-auto"></app-sidebar>
+
+  <div class="min-h-screen flex-grow overflow-y-auto w-4/5 bg-slate-100 flex flex-col justify-start items-center">
+      <div class="flex flex-row items-center">
+        <h1 class="varela-round-regular text-4xl p-4">Employee Management System</h1>
+        <button (click)="logout()" class="rounded-full bg-white border-b-2 p-3 text-blue-800 border-gray-300 hover:border-b-4 hover:bg-blue-200 hover:duration-500">Log out</button>
+      </div>
+      <div class="w-3/4 h-auto p-3 flex justify-around varela-round-regular">
+        <input 
+        (input)="updateSearchedEmp($event)" 
+        (keyup.enter)="search()"
+        type="text" id="searchedEmployee" 
+        placeholder="Type relevant information to complete the search" 
+        class="w-3/4 p-2 rounded-lg"/>
+        <button (click)="search()"  class="bg-white p-2 rounded-lg border-2 mx-4 w-32">Search</button>
+      </div>
+
+      <ng-container *ngIf="employees.length > 0; else noResults">
+        <div class="flex flex-wrap justify-center mx-auto my-16">
+          <a *ngFor="let emp of employees"
+             [routerLink]="['/detail/', emp.id]"
+             class="flex flex-col justify-center items-center bg-white rounded-lg mx-5 my-3 w-64 p-5">
+            <img class="w-40 h-40" [src]="emp.employee_photo.length>0 ? emp.employee_photo : 'https://www.w3schools.com/howto/img_avatar.png' " alt="Icon" />
+            <div class="py-2">
+              <p class="text-center varela-round-regular text-xl">{{ emp.first_name }} {{ emp.last_name }}</p>
+              <p class="text-center varela-round-regular">{{ emp.department }} - {{emp.designation}}</p>
+            </div>
+          </a>
+        </div>
+
+      </ng-container>
+      
+      
+      <ng-template #noResults>
+        <h2 class="varela-round-regular text-gray-400 text-4xl py-20">-No Results-</h2>
+      </ng-template>
+      
+
+  </div>
+    
+    
+</body>
+</html>

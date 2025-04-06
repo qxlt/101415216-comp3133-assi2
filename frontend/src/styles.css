@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.varela-round-regular {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+html, body { height: 100%; }
+
+.mat-mdc-select-panel {
+  background-color: #fff !important;
+}
+
+.mat-mdc-option:hover {
+  background-color: #f0f0f0 !important; 
+  color: #000 !important; 
+}
+
+.mat-datepicker-content .mat-calendar{
+  background-color: #f8f9fa;
+  border-radius: 10px;
+}
+
+.mat-calendar-body-cell-content.mat-focus-indicator:hover {
+  border: 1px black solid;
+}

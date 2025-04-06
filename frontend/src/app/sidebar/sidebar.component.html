@@ -1,0 +1,18 @@
+<head>
+  <link href="./sidebar.component.css" rel="stylesheet">
+</head>
+
+<div>
+    <h1 class="varela-round-regular text-4xl p-5 text-black">Dashboard</h1>
+      <ul>
+        <hr class=" border-black"/>
+        <li [routerLink]="'/dashboard'" class="p-5 varela-round-regular text-lg bg-slate-200 hover:bg-blue-950 hover:text-white hover:duration-500 text-black">View All</li>
+        <hr class=" border-black"/>
+        <li [routerLink]="'/enrollEmployee'" class="p-5 varela-round-regular text-lg hover:bg-blue-950 hover:text-white hover:duration-500 text-black">Enroll Employee</li>
+        <hr class=" border-black"/>
+        <li class="p-5 varela-round-regular text-lg bg-slate-200 hover:bg-blue-950 hover:text-white hover:duration-500 text-black">Payroll</li>
+        <hr class=" border-black"/>
+        <li class="p-5 varela-round-regular text-lg hover:bg-blue-950 hover:text-white hover:duration-500 text-black">Timetable</li>
+        <hr class=" border-black"/>
+      </ul>
+</div>

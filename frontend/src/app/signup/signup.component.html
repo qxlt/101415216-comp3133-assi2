@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./signup.component.css" rel="stylesheet">
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet"> -->
+</head>
+<body class="h-screen w-screen flex flex-col justify-center items-center bg-slate-100">
+  <a [routerLink]="'/dashboard'" class="p-2 bg-green-300 ">Go Dashboard</a>
+  <a [routerLink]="'/detail'" class="p-2 bg-green-300 ">Go Details</a>
+  <div class="flex flex-col justify-center items-center bg-blue-950 p-5 rounded-xl w-1/5 h-auto shadow-lg shadow-green-200">
+    <h1 class="text-green-200 text-3xl card-title varela-round-regular my-2 font-bold p-1 rounded-lg">Sign up</h1>
+    <form class="flex flex-col justify-center items-center" action="">
+      <div class="m-2">
+        <label class="varela-round-regular text-green-200" for="username">Username</label>
+        <br/>
+        <input class="rounded-lg py-1 px-4 varela-round-regular" type="text" name="username" placeholder="Enter your username" [(ngModel)]="username"/>
+      </div>
+      <div class="m-2">      
+        <label class="varela-round-regular text-green-200" for="email">Email</label>
+        <br/>
+        <input class="rounded-lg py-1 px-4 varela-round-regular" type="email" name="email" placeholder="Enter your email" [(ngModel)]="email"/>
+      </div>
+      <div class="m-2">      
+        <label class="varela-round-regular text-green-200" for="password">Password</label>
+        <br/>
+        <input class="rounded-lg py-1 px-4 varela-round-regular" type="password" name="password" placeholder="Enter your password" [(ngModel)]="password"/>
+      </div>
+      <div class="m-2">
+        <label class="varela-round-regular text-green-200" for="repassword">Confirm Password</label>
+        <br/>
+        <input class="rounded-lg py-1 px-4 varela-round-regular" type="password" name="repassword" placeholder="Confirm your password" [(ngModel)]="confirmedPassword"/>
+        <p *ngIf="!validatePassword()" class="text-white p-2 self-start text-sm">Password doesn't match</p>
+      </div>
+      <div class="m-2">
+        <button (click)="onSubmit()" class="bg-green-200 rounded-lg p-2 hover:bg-green-300 text-blue-900">Sign Up</button>
+      </div>
+    </form>
+    <span class="text-sm text-center my-2 varela-round-regular text-green-200">
+      Already have an account? Click here to 
+      <a [routerLink]="'/login'" class="varela-round-regular text-white underline cursor-pointer p-1 hover:bg-slate-200 hover:text-blue-600">login</a>
+    </span>
+  </div>
+  
+  
+</body>
+</html>
