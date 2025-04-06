@@ -30,16 +30,14 @@ export class SignupComponent{
 
   onSubmit() {
     if(this.validatePassword()){
-      this.apiService.signUp(this.username, this.password, this.email).subscribe((data: any)=>{
-        if(data && data.data && data.data.signup && data.data.signup.username === this.username){
-          console.log("Sign up successfully: ", data._id)
+      this.apiService.signUp(this.username, this.password, this.email).subscribe((res: any)=>{
+        if(res.data.signup.username === this.username){
+          console.log("Sign up successfully: ", res.data.signup.id)
           this.router.navigate(['/login']);
         }else{
-          console.log(data)
+          alert("Sign-Up Failed")
         }
       })
-    }else{
-      console.log("failed")
     }
   }
 }
