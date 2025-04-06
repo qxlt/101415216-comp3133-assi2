@@ -23,7 +23,6 @@
 <img width="1470" alt="Screenshot 2025-04-06 at 3 14 22 PM" src="https://github.com/user-attachments/assets/6b865d1f-005b-4d18-9701-c160dfdd0d22" />
 
 ## Search and Log-out
-<img width="1470" alt="Screenshot 2025-04-06 at 3 48 26 PM" src="https://github.com/user-attachments/assets/1b472c99-8da4-4dc3-be34-5a9fd0deb824" />
 ### Users can filter employees by selecting departments
 <img width="1470" alt="Screenshot 2025-04-06 at 3 48 26 PM" src="https://github.com/user-attachments/assets/ec42e221-bd1a-4224-94dc-6099e248e1c6" />
 ### If no employee matches the department, dashboard displays -No Results-
